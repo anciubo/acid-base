@@ -670,11 +670,13 @@ REDIRECTIONS = []
 # to `nikola deploy`.  If no arguments are specified, a preset
 # named `default` will be executed.  You can use as many presets
 # in a `nikola deploy` command as you like.
-# DEPLOY_COMMANDS = {
-#     'default': [
-#         "rsync -rav --delete --delete-after output/ joe@my.site:/srv/www/site",
-#     ]
-# }
+DEPLOY_COMMANDS = {
+    'default': [
+        "cd output && git init && git config user.email anciubo@gmail.com && touch .nojekyll && git add .",
+        "git commit -a -m 'nikola'",
+        "git push -f https://anciubo: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@github.com/anciubo/acid-base.git master",
+    ]
+}
 
 # github_deploy configuration
 # For more details, read the manual:
